@@ -1,7 +1,7 @@
 site_name: latpy
 site_description: Outcomes benefits python toolbox with mapping capabilities
 site_author: VRConservation
-site_url: https://VRConservation.github.io/latpy
+site_url: https://3point.xyz/latpy
 repo_url: https://github.com/VRConservation/latpy
 
 copyright: "Copyright &copy; 2024 - 2024 Vance Russell"
@@ -84,3 +84,8 @@ nav:
     - API Reference:
           - latpy module: latpy.md
           - common module: common.md
+          - utils module: utils.md
+    - Examples:
+          - examples/intro.ipynb
+          - examples/demo.ipynb
+          - examples/csv.ipynb
