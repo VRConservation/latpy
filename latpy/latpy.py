@@ -66,28 +66,8 @@ class Map(ipyleaflet.Map):
             position (str, optional): The position of the layers control. Defaults to "topright".
         """
         self.add_control(ipyleaflet.LayersControl(position=position))
-
-    def add_geojson(self, data, name="geojson", **kwargs):
-        """Adds a GeoJSON layer to the map.
-
-        Args:
-            data (str | dict): The GeoJSON data as a string or a dictionary.
-            name (str, optional): The name of the layer. Defaults to "geojson".
-        """
-        import json
-
-        if isinstance(data, str):
-            with open(data) as f:
-                data = json.load(f)
-
-        if "style" not in kwargs:
-            kwargs["style"] = {"color": "blue", "weight": 1, "fillOpacity": 0}
-
-        if "hover_style" not in kwargs:
-            kwargs["hover_style"] = {"fillColor": "#ff0000", "fillOpacity": 0.5}
-
-        layer = ipyleaflet.GeoJSON(data=data, name=name, **kwargs)
-        self.add(layer)
+        
+# deleted add json 
 
     def add_shp(self, data, name="shp", **kwargs):
         """
