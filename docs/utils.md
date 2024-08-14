@@ -1,3 +1,3 @@
 # utils module
 
-::: geohey.utils
+::: latpy.utils
