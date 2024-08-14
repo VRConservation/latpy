@@ -66,32 +66,8 @@ class Map(ipyleaflet.Map):
             position (str, optional): The position of the layers control. Defaults to "topright".
         """
         self.add_control(ipyleaflet.LayersControl(position=position))
-        
-# deleted add json 
 
-    def add_shp(self, data, name="shp", **kwargs):
-        """
-        Adds a shapefile to the current map.
-
-        Args:
-            data (str or dict): The path to the shapefile as a string, or a dictionary representing the shapefile.
-            name (str, optional): The name of the layer. Defaults to "shp".
-            **kwargs: Arbitrary keyword arguments.
-
-        Raises:
-            TypeError: If the data is neither a string nor a dictionary representing a shapefile.
-
-        Returns:
-            None
-        """
-        import shapefile
-        import json
-
-        if isinstance(data, str):
-            with shapefile.Reader(data) as shp:
-                data = shp.__geo_interface__
-
-        self.add_geojson(data, name, **kwargs)
+# deleted add json and add_shp
 
     def add_image(self, url, bounds, name="image", **kwargs):
         """Adds an image overlay to the map.
