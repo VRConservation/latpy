@@ -12,13 +12,9 @@
         <meta name="author" content="VRConservation">
       
       
-        <link rel="canonical" href="https://3point.xyz/latpy/examples/demo/">
+        <link rel="canonical" href="https://3point.xyz/latpy/examples/ipyleaflet/">
       
       
-        <link rel="prev" href="../intro/">
-      
-      
-        <link rel="next" href="../csv/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -26,7 +22,7 @@
     
     
       
-        <title>Demo - latpy</title>
+        <title>Ipyleaflet - latpy</title>
       
     
     
@@ -113,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Demo
+              Ipyleaflet
             
           </span>
         </div>
@@ -566,19 +562,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
         
           
           <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
@@ -592,7 +586,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             Examples
@@ -624,17 +618,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../demo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -643,7 +630,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -706,7 +692,7 @@
               <article class="md-content__inner md-typeset">
                 
 
-    <a href="/latpy/examples/demo/demo.ipynb" title="Download Notebook" class="md-content__button md-icon">
+    <a href="/latpy/examples/ipyleaflet/ipyleaflet.ipynb" title="Download Notebook" class="md-content__button md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg>
     </a>
 
@@ -718,7 +704,7 @@
   
 
 
-  <h1>Demo</h1>
+  <h1>Ipyleaflet</h1>
 
 <script>
 (function (global, factory) {
@@ -1183,8 +1169,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </style>
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1202,20 +1188,65 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">latpy</span>
-<span class="kn">import</span> <span class="nn">ipyleaflet</span>
-<span class="kn">from</span> <span class="nn">ipyleaflet</span> <span class="kn">import</span> <span class="n">basemaps</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">ipyleaflet</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Marker</span>
+
+<span class="n">center</span> <span class="o">=</span> <span class="p">(</span><span class="mf">52.204793</span><span class="p">,</span> <span class="mf">360.121558</span><span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">marker</span> <span class="o">=</span> <span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">center</span><span class="p">,</span> <span class="n">draggable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">marker</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="c1"># Now that the marker is on the Map, you can drag it with your mouse,</span>
+<span class="c1"># it will automatically update the `marker.location` attribute in Python</span>
+
+<span class="c1"># You can also update the marker location from Python, that will update the</span>
+<span class="c1"># marker location on the Map:</span>
+<span class="n">marker</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">356</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1">import latpy
-import ipyleaflet
-from ipyleaflet import basemaps</div>
+<div class="clipboard-copy-txt" id="cell-1">from ipyleaflet import Map, Marker
+
+center = (52.204793, 360.121558)
+
+m = Map(center=center, zoom=15)
+
+marker = Marker(location=center, draggable=True)
+m.add(marker)
+
+display(m)
+
+# Now that the marker is on the Map, you can drag it with your mouse,
+# it will automatically update the `marker.location` attribute in Python
+
+# You can also update the marker location from Python, that will update the
+# marker location on the Map:
+marker.location = (50, 356)</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jupyter-widgets jp-OutputArea-output" id="7bf42388-8445-437b-a7ae-af47c2c36497" tabindex="0">
+<script type="text/javascript">
+var element = document.getElementById('7bf42388-8445-437b-a7ae-af47c2c36497');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "9c1efeb918cd49b5b26eeddf4cef8e13"}
+</script>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1233,150 +1264,9 @@ from ipyleaflet import basemaps</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">basemaps</span><span class="o">.</span><span class="n">OpenTopoMap</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">latpy</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">basemaps.OpenTopoMap</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div>
-<style>
-/* CSS stylesheet for displaying xyzservices objects in Jupyter.*/
-.xyz-wrap {
-    --xyz-border-color: var(--jp-border-color2, #ddd);
-    --xyz-font-color2: var(--jp-content-font-color2, rgba(128, 128, 128, 1));
-    --xyz-background-color-white: var(--jp-layout-color1, white);
-    --xyz-background-color: var(--jp-layout-color2, rgba(128, 128, 128, 0.1));
-}
-
-html[theme=dark] .xyz-wrap,
-body.vscode-dark .xyz-wrap,
-body.vscode-high-contrast .xyz-wrap {
-    --xyz-border-color: #222;
-    --xyz-font-color2: rgba(255, 255, 255, 0.54);
-    --xyz-background-color-white: rgba(255, 255, 255, 1);
-    --xyz-background-color: rgba(255, 255, 255, 0.05);
-
-}
-
-.xyz-header {
-    padding-top: 6px;
-    padding-bottom: 6px;
-    margin-bottom: 4px;
-    border-bottom: solid 1px var(--xyz-border-color);
-}
-
-.xyz-header>div {
-    display: inline;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.xyz-obj,
-.xyz-name {
-    margin-left: 2px;
-    margin-right: 10px;
-}
-
-.xyz-obj {
-    color: var(--xyz-font-color2);
-}
-
-.xyz-attrs {
-    grid-column: 1 / -1;
-}
-
-dl.xyz-attrs {
-    padding: 0 5px 0 5px;
-    margin: 0;
-    display: grid;
-    grid-template-columns: 135px auto;
-    background-color: var(--xyz-background-color);
-}
-
-.xyz-attrs dt,
-dd {
-    padding: 0;
-    margin: 0;
-    float: left;
-    padding-right: 10px;
-    width: auto;
-}
-
-.xyz-attrs dt {
-    font-weight: normal;
-    grid-column: 1;
-}
-
-.xyz-attrs dd {
-    grid-column: 2;
-    white-space: pre-wrap;
-    word-break: break-all;
-}
-
-.xyz-details ul>li>label>span {
-    color: var(--xyz-font-color2);
-    padding-left: 10px;
-}
-
-.xyz-inside {
-    display: none;
-}
-
-.xyz-checkbox:checked~.xyz-inside {
-    display: contents;
-}
-
-.xyz-collapsible li>input {
-    display: none;
-}
-
-.xyz-collapsible>li>label {
-    cursor: pointer;
-}
-
-.xyz-collapsible>li>label:hover {
-    color: var(--xyz-font-color2);
-}
-
-ul.xyz-collapsible {
-    list-style: none!important;
-    padding-left: 20px!important;
-}
-
-.xyz-checkbox+label:before {
-    content: '►';
-    font-size: 11px;
-}
-
-.xyz-checkbox:checked+label:before {
-    content: '▼';
-}
-
-.xyz-wrap {
-    margin-bottom: 10px;
-}
-</style>
-<div class="xyz-wrap">
-<div class="xyz-header">
-<div class="xyz-obj">xyzservices.TileProvider</div>
-<div class="xyz-name">OpenTopoMap</div>
-</div>
-<div class="xyz-details">
-<dl class="xyz-attrs">
-<dt><span>url</span></dt><dd>https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png</dd><dt><span>max_zoom</span></dt><dd>17</dd><dt><span>html_attribution</span></dt><dd>Map data: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)</dd><dt><span>attribution</span></dt><dd>Map data: (C) OpenStreetMap contributors, SRTM | Map style: (C) OpenTopoMap (CC-BY-SA)</dd>
-</dl>
-</div>
-</div>
-</div>
+<div class="clipboard-copy-txt" id="cell-2">import latpy</div>
 </div>
 </div>
 </div>
@@ -1401,166 +1291,11 @@ ul.xyz-collapsible {
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">latpy</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mf">51.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># m = latpy.Map()</span>
+<span class="c1"># m</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3">m = latpy.Map(center=(51.5, -0.1), zoom=10)</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy for="cell-4">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">ipyleaflet</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">basemaps</span>
-
-<span class="n">center</span> <span class="o">=</span> <span class="p">[</span><span class="mi">38</span><span class="p">,</span> <span class="o">-</span><span class="mi">119</span><span class="p">]</span>
-<span class="n">zoom</span> <span class="o">=</span> <span class="mi">6</span>
-
-<span class="c1"># Map(basemap=basemaps.OpenTopoMap, center=center, zoom=zoom)</span>
-<span class="c1"># Map(basemap=basemaps.CartoDB.DarkMatter, center=center, zoom=zoom)</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">Map</span><span class="p">(</span><span class="n">basemap</span><span class="o">=</span><span class="n">basemaps</span><span class="o">.</span><span class="n">Esri</span><span class="o">.</span><span class="n">WorldImagery</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="n">zoom</span><span class="p">)</span>
-<span class="n">m</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-4">from ipyleaflet import Map, basemaps
-
-center = [38, -119]
-zoom = 6
-
-# Map(basemap=basemaps.OpenTopoMap, center=center, zoom=zoom)
-# Map(basemap=basemaps.CartoDB.DarkMatter, center=center, zoom=zoom)
-m = Map(basemap=basemaps.Esri.WorldImagery, center=center, zoom=zoom)
-m</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
-<div class="jupyter-widgets jp-OutputArea-output jp-OutputArea-executeResult" id="cc897efe-0999-4228-b331-737bab69a00e" tabindex="0">
-<script type="text/javascript">
-var element = document.getElementById('cc897efe-0999-4228-b331-737bab69a00e');
-</script>
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "956c25280b7f46a5993b35209c203586"}
-</script>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy for="cell-5">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">layers</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-5">m.layers</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(TileLayer(attribution='Tiles &amp;copy; Esri &amp;mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community', base=True, min_zoom=1, name='Esri.WorldImagery', options=['attribution', 'bounds', 'detect_retina', 'max_native_zoom', 'max_zoom', 'min_native_zoom', 'min_zoom', 'no_wrap', 'tile_size', 'tms', 'zoom_offset'], url='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),)</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="CodeMirror cm-s-jupyter">
-<div class="zeroclipboard-container">
-<clipboard-copy for="cell-6">
-<div>
-<span class="notice" hidden="">Copied!</span>
-<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
-<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-</clipboard-copy>
-</div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Import the Map class from the latpy module</span>
-<span class="c1"># from latpy import Map</span>
-
-<span class="c1"># Create a map object</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mf">51.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-
-<span class="c1"># Display the map (assuming you are using a library like ipyleaflet or similar)</span>
-<span class="n">m</span>
-</pre></div>
-<div class="clipboard-copy-txt" id="cell-6"># Import the Map class from the latpy module
-# from latpy import Map
-
-# Create a map object
-m = Map(center=(51.5, -0.1), zoom=10)
-
-# Display the map (assuming you are using a library like ipyleaflet or similar)
-m</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
-<div class="jupyter-widgets jp-OutputArea-output jp-OutputArea-executeResult" id="999b6e64-4ffa-41de-8c27-0375227826e8" tabindex="0">
-<script type="text/javascript">
-var element = document.getElementById('999b6e64-4ffa-41de-8c27-0375227826e8');
-</script>
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "af714e3a6c004744be5f8da6e593ccca"}
-</script>
+<div class="clipboard-copy-txt" id="cell-3"># m = latpy.Map()
+# m</div>
 </div>
 </div>
 </div>
@@ -1570,7 +1305,7 @@ var element = document.getElementById('999b6e64-4ffa-41de-8c27-0375227826e8');
 </div> <!-- jp-Notebook -->
 </div> <!-- jupyter-wrapper -->
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {"9da4239a164e492f9ba5bd885978080b": {"model_name": "LeafletMapStyleModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "cursor": "grab"}}, "4d143d72c3e14be9bf1674151c5a3b42": {"model_name": "LeafletMapStyleModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "cursor": "move"}}, "7056ee73005747db9b475a02e9af2e84": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletTileLayerView", "attribution": "&copy; <a href=\"https:\/\/www.openstreetmap.org\/copyright\">OpenStreetMap<\/a> contributors", "base": true, "bottom": true, "bounds": null, "detect_retina": false, "loading": false, "max_native_zoom": null, "max_zoom": 19, "min_native_zoom": null, "min_zoom": 1, "name": "OpenStreetMap.Mapnik", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "bounds", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms", "zoom_offset"], "pane": "", "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "subitems": [], "tile_size": 256, "tms": false, "url": "https:\/\/tile.openstreetmap.org\/{z}\/{x}\/{y}.png", "visible": true, "zoom_offset": 0}}, "7d4a513779924c3dbc799cf4abd5e156": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets\/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets\/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a3127c94fbaa4f7ea9104d1076eb0e75": {"model_name": "LeafletMapStyleModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "cursor": "grab"}}, "f2a4253829ea48c8b4024f3d1ecdd96b": {"model_name": "LeafletMapModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_dom_classes": [], "_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletMapView", "bottom": 0.0, "bounce_at_zoom_limits": true, "box_zoom": true, "center": [0.0, 0.0], "close_popup_on_click": true, "controls": ["IPY_MODEL_0da4479fd31f4b3d98b5898bbea82740", "IPY_MODEL_3f7e1cfce7a84668b57099e8ddcb591c", "IPY_MODEL_1cbe8e47aaec45d2ba80edbfc9761932"], "crs": {"name": "EPSG3857", "custom": false}, "default_style": "IPY_MODEL_9da4239a164e492f9ba5bd885978080b", "double_click_zoom": true, "dragging": true, "dragging_style": "IPY_MODEL_4d143d72c3e14be9bf1674151c5a3b42", "east": 0.0, "fullscreen": false, "inertia": true, "inertia_deceleration": 3000, "inertia_max_speed": 1500, "interpolation": "bilinear", "keyboard": true, "keyboard_pan_offset": 80, "keyboard_zoom_offset": 1, "layers": ["IPY_MODEL_7056ee73005747db9b475a02e9af2e84"], "layout": "IPY_MODEL_7d4a513779924c3dbc799cf4abd5e156", "left": 9007199254740991.0, "max_zoom": null, "min_zoom": null, "modisdate": "2024-09-02", "north": 0.0, "options": ["bounce_at_zoom_limits", "box_zoom", "center", "close_popup_on_click", "double_click_zoom", "dragging", "fullscreen", "inertia", "inertia_deceleration", "inertia_max_speed", "interpolation", "keyboard", "keyboard_pan_offset", "keyboard_zoom_offset", "max_zoom", "min_zoom", "prefer_canvas", "scroll_wheel_zoom", "tap", "tap_tolerance", "touch_zoom", "world_copy_jump", "zoom", "zoom_animation_threshold", "zoom_delta", "zoom_snap"], "panes": {}, "prefer_canvas": false, "right": 0.0, "scroll_wheel_zoom": false, "south": 0.0, "style": "IPY_MODEL_a3127c94fbaa4f7ea9104d1076eb0e75", "tabbable": null, "tap": true, "tap_tolerance": 15, "tooltip": null, "top": 9007199254740991.0, "touch_zoom": true, "west": 0.0, "window_url": "", "world_copy_jump": false, "zoom": 12.0, "zoom_animation_threshold": 4, "zoom_delta": 1.0, "zoom_snap": 1.0}}, "0da4479fd31f4b3d98b5898bbea82740": {"model_name": "LeafletZoomControlModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletZoomControlModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletZoomControlView", "options": ["position", "zoom_in_text", "zoom_in_title", "zoom_out_text", "zoom_out_title"], "position": "topleft", "zoom_in_text": "+", "zoom_in_title": "Zoom in", "zoom_out_text": "-", "zoom_out_title": "Zoom out"}}, "3f7e1cfce7a84668b57099e8ddcb591c": {"model_name": "LeafletAttributionControlModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletAttributionControlModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletAttributionControlView", "options": ["position", "prefix"], "position": "bottomright", "prefix": "ipyleaflet"}}, "1cbe8e47aaec45d2ba80edbfc9761932": {"model_name": "LeafletLayersControlModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletLayersControlModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletLayersControlView", "collapsed": true, "options": ["collapsed", "position"], "position": "topleft"}}, "40e45b0e4596488eb1eaa5e64bb17d05": {"model_name": "LeafletMapStyleModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "cursor": "grab"}}, "698afa408dee4a2898062636fea6b1f7": {"model_name": "LeafletMapStyleModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "cursor": "move"}}, "374eed0b513e43e8aab94efe8f4b1974": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletTileLayerView", "attribution": "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community", "base": true, "bottom": true, "bounds": null, "detect_retina": false, "loading": false, "max_native_zoom": null, "max_zoom": 18, "min_native_zoom": null, "min_zoom": 1, "name": "Esri.WorldImagery", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "bounds", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms", "zoom_offset"], "pane": "", "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "subitems": [], "tile_size": 256, "tms": false, "url": "https:\/\/server.arcgisonline.com\/ArcGIS\/rest\/services\/World_Imagery\/MapServer\/tile\/{z}\/{y}\/{x}", "visible": true, "zoom_offset": 0}}, "45b6971b2b714db0ac0c805a1c8e7921": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets\/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets\/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e59e194f98b7422bb872ff9d0fcd311f": {"model_name": "LeafletMapStyleModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "cursor": "grab"}}, "956c25280b7f46a5993b35209c203586": {"model_name": "LeafletMapModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_dom_classes": [], "_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletMapView", "bottom": 0.0, "bounce_at_zoom_limits": true, "box_zoom": true, "center": [38, -119], "close_popup_on_click": true, "controls": ["IPY_MODEL_94a935926f8347218344edde0f6233fc", "IPY_MODEL_288ff68da9a24d0db009c61536ce82f1"], "crs": {"name": "EPSG3857", "custom": false}, "default_style": "IPY_MODEL_40e45b0e4596488eb1eaa5e64bb17d05", "double_click_zoom": true, "dragging": true, "dragging_style": "IPY_MODEL_698afa408dee4a2898062636fea6b1f7", "east": 0.0, "fullscreen": false, "inertia": true, "inertia_deceleration": 3000, "inertia_max_speed": 1500, "interpolation": "bilinear", "keyboard": true, "keyboard_pan_offset": 80, "keyboard_zoom_offset": 1, "layers": ["IPY_MODEL_374eed0b513e43e8aab94efe8f4b1974"], "layout": "IPY_MODEL_45b6971b2b714db0ac0c805a1c8e7921", "left": 9007199254740991.0, "max_zoom": null, "min_zoom": null, "modisdate": "2024-09-02", "north": 0.0, "options": ["bounce_at_zoom_limits", "box_zoom", "center", "close_popup_on_click", "double_click_zoom", "dragging", "fullscreen", "inertia", "inertia_deceleration", "inertia_max_speed", "interpolation", "keyboard", "keyboard_pan_offset", "keyboard_zoom_offset", "max_zoom", "min_zoom", "prefer_canvas", "scroll_wheel_zoom", "tap", "tap_tolerance", "touch_zoom", "world_copy_jump", "zoom", "zoom_animation_threshold", "zoom_delta", "zoom_snap"], "panes": {}, "prefer_canvas": false, "right": 0.0, "scroll_wheel_zoom": false, "south": 0.0, "style": "IPY_MODEL_e59e194f98b7422bb872ff9d0fcd311f", "tabbable": null, "tap": true, "tap_tolerance": 15, "tooltip": null, "top": 9007199254740991.0, "touch_zoom": true, "west": 0.0, "window_url": "", "world_copy_jump": false, "zoom": 6.0, "zoom_animation_threshold": 4, "zoom_delta": 1.0, "zoom_snap": 1.0}}, "94a935926f8347218344edde0f6233fc": {"model_name": "LeafletZoomControlModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletZoomControlModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletZoomControlView", "options": ["position", "zoom_in_text", "zoom_in_title", "zoom_out_text", "zoom_out_title"], "position": "topleft", "zoom_in_text": "+", "zoom_in_title": "Zoom in", "zoom_out_text": "-", "zoom_out_title": "Zoom out"}}, "288ff68da9a24d0db009c61536ce82f1": {"model_name": "LeafletAttributionControlModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletAttributionControlModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletAttributionControlView", "options": ["position", "prefix"], "position": "bottomright", "prefix": "ipyleaflet"}}, "f36f722d8c8b4ead83f5ae3b10e23546": {"model_name": "LeafletMapStyleModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "cursor": "grab"}}, "f941e465fb4f47118b7207af2ff69fb5": {"model_name": "LeafletMapStyleModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "cursor": "move"}}, "1c83d5cb54bb47228e94bdfdcb83c74c": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletTileLayerView", "attribution": "&copy; <a href=\"https:\/\/www.openstreetmap.org\/copyright\">OpenStreetMap<\/a> contributors", "base": true, "bottom": true, "bounds": null, "detect_retina": false, "loading": false, "max_native_zoom": null, "max_zoom": 19, "min_native_zoom": null, "min_zoom": 1, "name": "OpenStreetMap.Mapnik", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "bounds", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms", "zoom_offset"], "pane": "", "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "subitems": [], "tile_size": 256, "tms": false, "url": "https:\/\/tile.openstreetmap.org\/{z}\/{x}\/{y}.png", "visible": true, "zoom_offset": 0}}, "1c42c0efcd294772a6a9f5fb3c4ebfb9": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets\/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets\/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "af62dc2ea4784e098614c26cc1876f81": {"model_name": "LeafletMapStyleModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "cursor": "grab"}}, "af714e3a6c004744be5f8da6e593ccca": {"model_name": "LeafletMapModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_dom_classes": [], "_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletMapView", "bottom": 0.0, "bounce_at_zoom_limits": true, "box_zoom": true, "center": [51.5, -0.1], "close_popup_on_click": true, "controls": ["IPY_MODEL_aba06599ff54446c9629fdc3e0d98594", "IPY_MODEL_f5061368ca9b4791b9c08fa90b5a75ef"], "crs": {"name": "EPSG3857", "custom": false}, "default_style": "IPY_MODEL_f36f722d8c8b4ead83f5ae3b10e23546", "double_click_zoom": true, "dragging": true, "dragging_style": "IPY_MODEL_f941e465fb4f47118b7207af2ff69fb5", "east": 0.0, "fullscreen": false, "inertia": true, "inertia_deceleration": 3000, "inertia_max_speed": 1500, "interpolation": "bilinear", "keyboard": true, "keyboard_pan_offset": 80, "keyboard_zoom_offset": 1, "layers": ["IPY_MODEL_1c83d5cb54bb47228e94bdfdcb83c74c"], "layout": "IPY_MODEL_1c42c0efcd294772a6a9f5fb3c4ebfb9", "left": 9007199254740991.0, "max_zoom": null, "min_zoom": null, "modisdate": "2024-09-02", "north": 0.0, "options": ["bounce_at_zoom_limits", "box_zoom", "center", "close_popup_on_click", "double_click_zoom", "dragging", "fullscreen", "inertia", "inertia_deceleration", "inertia_max_speed", "interpolation", "keyboard", "keyboard_pan_offset", "keyboard_zoom_offset", "max_zoom", "min_zoom", "prefer_canvas", "scroll_wheel_zoom", "tap", "tap_tolerance", "touch_zoom", "world_copy_jump", "zoom", "zoom_animation_threshold", "zoom_delta", "zoom_snap"], "panes": {}, "prefer_canvas": false, "right": 0.0, "scroll_wheel_zoom": false, "south": 0.0, "style": "IPY_MODEL_af62dc2ea4784e098614c26cc1876f81", "tabbable": null, "tap": true, "tap_tolerance": 15, "tooltip": null, "top": 9007199254740991.0, "touch_zoom": true, "west": 0.0, "window_url": "", "world_copy_jump": false, "zoom": 10.0, "zoom_animation_threshold": 4, "zoom_delta": 1.0, "zoom_snap": 1.0}}, "aba06599ff54446c9629fdc3e0d98594": {"model_name": "LeafletZoomControlModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletZoomControlModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletZoomControlView", "options": ["position", "zoom_in_text", "zoom_in_title", "zoom_out_text", "zoom_out_title"], "position": "topleft", "zoom_in_text": "+", "zoom_in_title": "Zoom in", "zoom_out_text": "-", "zoom_out_title": "Zoom out"}}, "f5061368ca9b4791b9c08fa90b5a75ef": {"model_name": "LeafletAttributionControlModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletAttributionControlModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletAttributionControlView", "options": ["position", "prefix"], "position": "bottomright", "prefix": "ipyleaflet"}}}, "version_major": 2, "version_minor": 0}
+{"state": {"a963128d49964255883c1d3ba8ce578a": {"model_name": "LeafletMapStyleModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "cursor": "grab"}}, "17b30e8c0f1449c2a01cdc53c6f86b78": {"model_name": "LeafletMapStyleModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "cursor": "move"}}, "9f162c1f71d54ccb9eebd3a5c5fee71e": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletTileLayerView", "attribution": "&copy; <a href=\"https:\/\/www.openstreetmap.org\/copyright\">OpenStreetMap<\/a> contributors", "base": true, "bottom": true, "bounds": null, "detect_retina": false, "loading": false, "max_native_zoom": null, "max_zoom": 19, "min_native_zoom": null, "min_zoom": 1, "name": "OpenStreetMap.Mapnik", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "bounds", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms", "zoom_offset"], "pane": "", "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "subitems": [], "tile_size": 256, "tms": false, "url": "https:\/\/tile.openstreetmap.org\/{z}\/{x}\/{y}.png", "visible": true, "zoom_offset": 0}}, "5a90b57ba79f45c5b713fc68c5e6e1b3": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets\/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets\/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d468eef9accc4797b046a0c33c6d8d5f": {"model_name": "LeafletMapStyleModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "cursor": "grab"}}, "9c1efeb918cd49b5b26eeddf4cef8e13": {"model_name": "LeafletMapModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_dom_classes": [], "_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMapModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletMapView", "bottom": 0.0, "bounce_at_zoom_limits": true, "box_zoom": true, "center": [52.204793, 360.121558], "close_popup_on_click": true, "controls": ["IPY_MODEL_ce6367c32b5145dc8c509c3dd7b4a517", "IPY_MODEL_2532bf8e2641404e88ceb272761f5209"], "crs": {"name": "EPSG3857", "custom": false}, "default_style": "IPY_MODEL_a963128d49964255883c1d3ba8ce578a", "double_click_zoom": true, "dragging": true, "dragging_style": "IPY_MODEL_17b30e8c0f1449c2a01cdc53c6f86b78", "east": 0.0, "fullscreen": false, "inertia": true, "inertia_deceleration": 3000, "inertia_max_speed": 1500, "interpolation": "bilinear", "keyboard": true, "keyboard_pan_offset": 80, "keyboard_zoom_offset": 1, "layers": ["IPY_MODEL_9f162c1f71d54ccb9eebd3a5c5fee71e", "IPY_MODEL_bbd2fa4ec2a4425488d9fa73269cc1cd"], "layout": "IPY_MODEL_5a90b57ba79f45c5b713fc68c5e6e1b3", "left": 9007199254740991.0, "max_zoom": null, "min_zoom": null, "modisdate": "2024-09-02", "north": 0.0, "options": ["bounce_at_zoom_limits", "box_zoom", "center", "close_popup_on_click", "double_click_zoom", "dragging", "fullscreen", "inertia", "inertia_deceleration", "inertia_max_speed", "interpolation", "keyboard", "keyboard_pan_offset", "keyboard_zoom_offset", "max_zoom", "min_zoom", "prefer_canvas", "scroll_wheel_zoom", "tap", "tap_tolerance", "touch_zoom", "world_copy_jump", "zoom", "zoom_animation_threshold", "zoom_delta", "zoom_snap"], "panes": {}, "prefer_canvas": false, "right": 0.0, "scroll_wheel_zoom": false, "south": 0.0, "style": "IPY_MODEL_d468eef9accc4797b046a0c33c6d8d5f", "tabbable": null, "tap": true, "tap_tolerance": 15, "tooltip": null, "top": 9007199254740991.0, "touch_zoom": true, "west": 0.0, "window_url": "", "world_copy_jump": false, "zoom": 15.0, "zoom_animation_threshold": 4, "zoom_delta": 1.0, "zoom_snap": 1.0}}, "ce6367c32b5145dc8c509c3dd7b4a517": {"model_name": "LeafletZoomControlModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletZoomControlModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletZoomControlView", "options": ["position", "zoom_in_text", "zoom_in_title", "zoom_out_text", "zoom_out_title"], "position": "topleft", "zoom_in_text": "+", "zoom_in_title": "Zoom in", "zoom_out_text": "-", "zoom_out_title": "Zoom out"}}, "2532bf8e2641404e88ceb272761f5209": {"model_name": "LeafletAttributionControlModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletAttributionControlModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletAttributionControlView", "options": ["position", "prefix"], "position": "bottomright", "prefix": "ipyleaflet"}}, "bbd2fa4ec2a4425488d9fa73269cc1cd": {"model_name": "LeafletMarkerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.19", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.19", "_model_name": "LeafletMarkerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.19", "_view_name": "LeafletMarkerView", "alt": "", "base": false, "bottom": false, "draggable": true, "icon": null, "keyboard": true, "location": [50, 356], "name": "", "opacity": 1.0, "options": ["alt", "draggable", "keyboard", "rise_offset", "rise_on_hover", "rotation_angle", "rotation_origin", "title", "z_index_offset"], "pane": "", "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "rise_offset": 250, "rise_on_hover": false, "rotation_angle": 0.0, "rotation_origin": "", "subitems": [], "title": "", "visible": true, "z_index_offset": 0}}}, "version_major": 2, "version_minor": 0}
 </script>
 
         <style>
@@ -1609,7 +1344,7 @@ var element = document.getElementById('999b6e64-4ffa-41de-8c27-0375227826e8');
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-08-14T12:34:42+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-14</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-09-03T06:17:35+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-09-03</span>
   </span>
 
     
