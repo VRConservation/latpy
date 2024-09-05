@@ -2,54 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://3point.xyz/latpy/</loc>
-         <lastmod>2024-09-03</lastmod>
+         <lastmod>2024-09-05</lastmod>
     </url>
     <url>
          <loc>https://3point.xyz/latpy/changelog/</loc>
-         <lastmod>2024-09-03</lastmod>
+         <lastmod>2024-09-05</lastmod>
     </url>
     <url>
          <loc>https://3point.xyz/latpy/common/</loc>
-         <lastmod>2024-09-03</lastmod>
+         <lastmod>2024-09-05</lastmod>
     </url>
     <url>
          <loc>https://3point.xyz/latpy/contributing/</loc>
-         <lastmod>2024-09-03</lastmod>
+         <lastmod>2024-09-05</lastmod>
     </url>
     <url>
          <loc>https://3point.xyz/latpy/faq/</loc>
-         <lastmod>2024-09-03</lastmod>
+         <lastmod>2024-09-05</lastmod>
     </url>
     <url>
          <loc>https://3point.xyz/latpy/installation/</loc>
-         <lastmod>2024-09-03</lastmod>
+         <lastmod>2024-09-05</lastmod>
     </url>
     <url>
          <loc>https://3point.xyz/latpy/latpy/</loc>
-         <lastmod>2024-09-03</lastmod>
+         <lastmod>2024-09-05</lastmod>
     </url>
     <url>
          <loc>https://3point.xyz/latpy/usage/</loc>
-         <lastmod>2024-09-03</lastmod>
+         <lastmod>2024-09-05</lastmod>
     </url>
     <url>
          <loc>https://3point.xyz/latpy/utils/</loc>
-         <lastmod>2024-09-03</lastmod>
+         <lastmod>2024-09-05</lastmod>
     </url>
     <url>
          <loc>https://3point.xyz/latpy/examples/csv/</loc>
-         <lastmod>2024-09-03</lastmod>
+         <lastmod>2024-09-05</lastmod>
     </url>
     <url>
          <loc>https://3point.xyz/latpy/examples/demo/</loc>
-         <lastmod>2024-09-03</lastmod>
+         <lastmod>2024-09-05</lastmod>
     </url>
     <url>
          <loc>https://3point.xyz/latpy/examples/intro/</loc>
-         <lastmod>2024-09-03</lastmod>
+         <lastmod>2024-09-05</lastmod>
     </url>
     <url>
          <loc>https://3point.xyz/latpy/examples/ipyleaflet/</loc>
-         <lastmod>2024-09-03</lastmod>
+         <lastmod>2024-09-05</lastmod>
+    </url>
+    <url>
+         <loc>https://3point.xyz/latpy/examples/raster/</loc>
+         <lastmod>2024-09-05</lastmod>
     </url>
 </urlset>
